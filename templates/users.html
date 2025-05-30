@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Funcionários - API Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+    <header>
+        <h1>Gestão de Funcionários</h1>
+        <button id="toggle-theme" aria-label="Alternar tema claro/escuro">Modo Escuro</button>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab-btn active" data-tab="list">Lista de Funcionários</button>
+        <button class="tab-btn" data-tab="form">Cadastrar Funcionário</button>
+    </nav>
+
+    <section id="list" class="tab-content active">
+        {% if users %}
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Função</th>
+                    <th>Departamento</th>
+                    <th>Data de Início</th>
+                    <th>Telefone</th> <!-- Adicionando coluna para telefone -->
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody id="user-list">
+                {% for user in users %}
+                <tr data-id="{{ user.id }}">
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.name }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.function }}</td>
+                    <td>{{ user.department }}</td>
+                    <td>{{ user.start_date }}</td>
+                    <td>{{ user.phone }}</td> <!-- Exibindo telefone -->
+                    <td>
+                        <button class="edit-btn" data-id="{{ user.id }}">Editar</button>
+                        <button class="delete-btn" data-id="{{ user.id }}">Excluir</button>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+            <p>Nenhum funcionário cadastrado.</p>
+        {% endif %}
+    </section>
+
+    <section id="form" class="tab-content">
+        <form id="employee-form">
+            <!-- Armazenar ID oculto quando estiver editando -->
+            <input type="hidden" id="editing-id" />
+            <div class="form-group">
+                <label for="name">Nome Completo:</label>
+                <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+                <label for="email">Email Corporativo:</label>
+                <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+                <label for="function">Função:</label>
+                <input type="text" id="function" name="function" required />
+            </div>
+            <div class="form-group">
+                <label for="department">Departamento:</label>
+                <input type="text" id="department" name="department" required />
+            </div>
+            <div class="form-group">
+                <label for="start_date">Data de Início:</label>
+                <input type="date" id="start_date" name="start_date" required />
+            </div>
+            <div class="form-group">
+                <label for="phone">Telefone:</label> <!-- Adicionando campo de telefone -->
+                <input type="text" id="phone" name="phone" required />
+            </div>
+
+            <button type="submit">Salvar Funcionário</button>
+        </form>
+        <div id="form-message"></div>
+    </section>
+
+    <script src="{{ url_for('static', filename='main.js') }}"></script>    
+</body>
+</html>

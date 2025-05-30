@@ -1,0 +1,209 @@
+/* Reset e base */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+  color: #222;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header {
+  background-color: #007bff;
+  color: white;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1 {
+  margin: 0 auto;
+  font-size: 1.5rem;
+}
+
+#toggle-theme {
+  background: #fff;
+  color: #007bff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#toggle-theme:hover {
+  background: #e6e6e6;
+}
+
+/* Estilos das abas */
+.tabs {
+  display: flex;
+  border-bottom: 2px solid #ccc;
+  margin-bottom: 1rem;
+  background: #fff;
+  padding: 0.5rem 1rem;
+  justify-content: center;
+}
+
+.tab-btn {
+  background: transparent;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  cursor: pointer;
+  font-weight: 700;
+  color: inherit;
+  border-bottom: 4px solid transparent;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.tab-btn.active {
+  border-color: #007bff;
+  color: #007bff;
+}
+
+.tab-btn:hover:not(.active) {
+  color: #0056b3;
+}
+
+.tab-content {
+  display: none;
+  padding: 1rem 2rem;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+/* Tabela de usuários */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+}
+
+thead {
+  background-color: #007bff;
+  color: white;
+}
+
+td, th {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: left;
+}
+
+/* Formulário */
+form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: inherit;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="date"] {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: #fff;
+  color: #222;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+button[type="submit"] {
+  background-color: #007bff;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Modo escuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #e4e4e4;
+}
+
+body.dark-mode header {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode #toggle-theme {
+  background-color: #333;
+  color: #fff;
+}
+
+body.dark-mode .tabs {
+  background-color: #1e1e1e;
+  border-color: #444;
+}
+
+body.dark-mode .tab-btn {
+  color: #ccc;
+}
+
+body.dark-mode .tab-btn.active {
+  color: #00aaff;
+  border-color: #00aaff;
+}
+
+body.dark-mode table {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+  border-color: #444;
+}
+
+body.dark-mode thead {
+  background-color: #2a2a2a;
+}
+
+body.dark-mode td,
+body.dark-mode th {
+  border-color: #444;
+}
+
+body.dark-mode input,
+body.dark-mode select,
+body.dark-mode textarea {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+}
+
+body.dark-mode input:focus {
+  border-color: #3399ff;
+}
+
+body.dark-mode button[type="submit"] {
+  background-color: #3399ff;
+}
+
+body.dark-mode button[type="submit"]:hover {
+  background-color: #1976d2;
+}
